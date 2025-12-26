@@ -1,0 +1,355 @@
+#name "test.cl"
+
+
+
+#1 CLASS
+ #1 TYPEID CellularAutomaton
+ #1 INHERITS
+ #1 TYPEID IO
+ #1 '{'
+    #1 OBJECTID population_map
+ #1 ':'
+ #1 TYPEID String
+#1 ';'
+       #1 OBJECTID init
+#1 '('
+#1 OBJECTID map
+ #1 ':'
+ #1 TYPEID String
+#1 ')'
+ #1 ':'
+ #1 TYPEID SELF_TYPE
+ #1 '{'
+        #1 '{'
+            #1 OBJECTID population_map
+ #1 ASSIGN
+ #1 OBJECTID map
+#1 ';'
+            #1 OBJECTID self
+#1 ';'
+        #1 '}'
+    #1 '}'
+#1 ';'
+       #1 OBJECTID print
+#1 '('
+#1 ')'
+ #1 ':'
+ #1 TYPEID SELF_TYPE
+ #1 '{'
+        #1 '{'
+            #1 OBJECTID out_string
+#1 '('
+#1 OBJECTID population_map
+#1 '.'
+#1 OBJECTID concat
+#1 '('
+#1 STR_CONST "\n"
+#1 ')'
+#1 ')'
+#1 ';'
+            #1 OBJECTID self
+#1 ';'
+        #1 '}'
+    #1 '}'
+#1 ';'
+       #1 OBJECTID num_cells
+#1 '('
+#1 ')'
+ #1 ':'
+ #1 TYPEID Int
+ #1 '{'
+        #1 OBJECTID population_map
+#1 '.'
+#1 OBJECTID length
+#1 '('
+#1 ')'
+    #1 '}'
+#1 ';'
+       #1 OBJECTID cell
+#1 '('
+#1 OBJECTID position
+ #1 ':'
+ #1 TYPEID Int
+#1 ')'
+ #1 ':'
+ #1 TYPEID String
+ #1 '{'
+        #1 OBJECTID population_map
+#1 '.'
+#1 OBJECTID substr
+#1 '('
+#1 OBJECTID position
+#1 ','
+ #1 INT_CONST 1
+#1 ')'
+    #1 '}'
+#1 ';'
+       #1 OBJECTID cell_left_neighbor
+#1 '('
+#1 OBJECTID position
+ #1 ':'
+ #1 TYPEID Int
+#1 ')'
+ #1 ':'
+ #1 TYPEID String
+ #1 '{'
+        #1 IF
+ #1 OBJECTID position
+ #1 '='
+ #1 INT_CONST 0
+ #1 THEN
+            #1 OBJECTID cell
+#1 '('
+#1 OBJECTID num_cells
+#1 '('
+#1 ')'
+ #1 '-'
+ #1 INT_CONST 1
+#1 ')'
+        #1 ELSE
+            #1 OBJECTID cell
+#1 '('
+#1 OBJECTID position
+ #1 '-'
+ #1 INT_CONST 1
+#1 ')'
+        #1 FI
+    #1 '}'
+#1 ';'
+       #1 OBJECTID cell_right_neighbor
+#1 '('
+#1 OBJECTID position
+ #1 ':'
+ #1 TYPEID Int
+#1 ')'
+ #1 ':'
+ #1 TYPEID String
+ #1 '{'
+        #1 IF
+ #1 OBJECTID position
+ #1 '='
+ #1 OBJECTID num_cells
+#1 '('
+#1 ')'
+ #1 '-'
+ #1 INT_CONST 1
+ #1 THEN
+            #1 OBJECTID cell
+#1 '('
+#1 INT_CONST 0
+#1 ')'
+        #1 ELSE
+            #1 OBJECTID cell
+#1 '('
+#1 OBJECTID position
+ #1 '+'
+ #1 INT_CONST 1
+#1 ')'
+        #1 FI
+    #1 '}'
+#1 ';'
+       
+    #1 OBJECTID cell_at_next_evolution
+#1 '('
+#1 OBJECTID position
+ #1 ':'
+ #1 TYPEID Int
+#1 ')'
+ #1 ':'
+ #1 TYPEID String
+ #1 '{'
+        #1 IF
+ #1 '('
+#1 IF
+ #1 OBJECTID cell
+#1 '('
+#1 OBJECTID position
+#1 ')'
+ #1 '='
+ #1 STR_CONST "X"
+ #1 THEN
+ #1 INT_CONST 1
+ #1 ELSE
+ #1 INT_CONST 0
+ #1 FI
+            #1 '+'
+ #1 IF
+ #1 OBJECTID cell_left_neighbor
+#1 '('
+#1 OBJECTID position
+#1 ')'
+ #1 '='
+ #1 STR_CONST "X"
+ #1 THEN
+ #1 INT_CONST 1
+ #1 ELSE
+ #1 INT_CONST 0
+ #1 FI
+            #1 '+'
+ #1 IF
+ #1 OBJECTID cell_right_neighbor
+#1 '('
+#1 OBJECTID position
+#1 ')'
+ #1 '='
+ #1 STR_CONST "X"
+ #1 THEN
+ #1 INT_CONST 1
+ #1 ELSE
+ #1 INT_CONST 0
+ #1 FI
+            #1 '='
+ #1 INT_CONST 1
+#1 ')'
+        #1 THEN
+            #1 STR_CONST "X"
+        #1 ELSE
+            #1 <Invalid Token>
+#1 '.'
+#1 <Invalid Token>
+        #1 FI
+    #1 '}'
+#1 ';'
+       #1 OBJECTID evolve
+#1 '('
+#1 ')'
+ #1 ':'
+ #1 TYPEID SELF_TYPE
+ #1 '{'
+        #1 '('
+#1 LET
+ #1 OBJECTID position
+ #1 ':'
+ #1 TYPEID Int
+ #1 IN
+        #1 '('
+#1 LET
+ #1 OBJECTID num
+ #1 ':'
+ #1 TYPEID Int
+ #1 ASSIGN
+ #1 OBJECTID num_cells
+#1 <Invalid Token>
+#1 <Invalid Token>
+ #1 IN
+        #1 '('
+#1 LET
+ #1 OBJECTID temp
+ #1 ':'
+ #1 TYPEID String
+ #1 IN
+            #1 '{'
+                #1 WHILE
+ #1 OBJECTID position
+ #1 '<'
+ #1 OBJECTID num
+ #1 OBJECTID loop
+                    #1 '{'
+                        #1 OBJECTID temp
+ #1 ASSIGN
+ #1 OBJECTID temp
+#1 '.'
+#1 OBJECTID concat
+#1 '('
+#1 OBJECTID cell_at_next_evolution
+#1 '('
+#1 OBJECTID position
+#1 ')'
+#1 ')'
+#1 ';'
+                        #1 OBJECTID position
+ #1 ASSIGN
+ #1 OBJECTID position
+ #1 '+'
+ #1 INT_CONST 1
+#1 ';'
+                    #1 '}'
+                #1 POOL
+#1 ';'
+                #1 OBJECTID population_map
+ #1 ASSIGN
+ #1 OBJECTID temp
+#1 ';'
+                #1 OBJECTID self
+#1 ';'
+            #1 '}'
+        #1 ')'
+ #1 ')'
+ #1 ')'
+    #1 '}'
+#1 ';'
+#1 '}'
+#1 ';'
+#1 CLASS
+ #1 TYPEID Main
+ #1 '{'
+    #1 OBJECTID cells
+ #1 ':'
+ #1 TYPEID CellularAutomaton
+#1 ';'
+       #1 OBJECTID main
+#1 '('
+#1 ')'
+ #1 ':'
+ #1 TYPEID SELF_TYPE
+ #1 '{'
+        #1 '{'
+            #1 OBJECTID cells
+ #1 ASSIGN
+ #1 '('
+#1 OBJECTID new
+ #1 TYPEID CellularAutomaton
+#1 ')'
+#1 '.'
+#1 OBJECTID init
+#1 '('
+#1 STR_CONST "         X         "
+#1 ')'
+#1 ';'
+            #1 OBJECTID cells
+#1 '.'
+#1 OBJECTID print
+#1 '('
+#1 ')'
+#1 ';'
+            #1 '('
+#1 LET
+ #1 OBJECTID countdown
+ #1 ':'
+ #1 TYPEID Int
+ #1 ASSIGN
+ #1 INT_CONST 20
+ #1 IN
+                #1 WHILE
+ #1 OBJECTID countdown
+ #1 <Invalid Token>
+ #1 INT_CONST 0
+ #1 OBJECTID loop
+                    #1 '{'
+                        #1 OBJECTID cells
+#1 '.'
+#1 OBJECTID evolve
+#1 '('
+#1 ')'
+#1 ';'
+                        #1 OBJECTID cells
+#1 '.'
+#1 OBJECTID print
+#1 '('
+#1 ')'
+#1 ';'
+                        #1 OBJECTID countdown
+ #1 ASSIGN
+ #1 OBJECTID countdown
+ #1 '-'
+ #1 INT_CONST 1
+#1 ';'
+                                    #1 POOL
+            #1 ')'
+#1 ';'
+  
+
+
+
+
+#1 ERROR "EOF in comment"
