@@ -1,0 +1,291 @@
+#name "test.cl"
+(* #1 OBJECTID models
+ #1 OBJECTID one
+-#1 OBJECTID dimensional
+ #1 OBJECTID cellular
+ #1 OBJECTID automaton
+ #1 OBJECTID on
+ #1 OBJECTID a
+ #1 OBJECTID circle
+ #1 OF
+ #1 OBJECTID finite
+ #1 OBJECTID radius
+#1 STR_CONST "radius"
+   #1 OBJECTID arrays
+ #1 OBJECTID are
+ #1 OBJECTID faked
+ #1 OBJECTID as
+ #1 TYPEID Strings
+,#1 STR_CONST "Strings"
+   #1 TYPEID X
+'#1 OBJECTID s
+ #1 OBJECTID respresent
+ #1 OBJECTID live
+ #1 OBJECTID cells
+, #1 OBJECTID dots
+ #1 OBJECTID represent
+ #1 OBJECTID dead
+ #1 OBJECTID cells
+,#1 STR_CONST "cells"
+   #1 OBJECTID no
+ #1 OBJECTID error
+ #1 OBJECTID checking
+ #1 OBJECTID is
+ #1 OBJECTID done
+ *)#1 STR_CONST "done"
+#1 CLASS
+ #1 TYPEID CellularAutomaton
+ #1 INHERITS
+ #1 TYPEID IO
+ {#1 STR_CONST "IO"
+    #1 OBJECTID population_map
+ : #1 TYPEID String
+;#1 STR_CONST "String"
+   #1 STR_CONST "String"
+    #1 OBJECTID init
+(#1 OBJECTID map
+ : #1 TYPEID String
+) : #1 TYPEID SELF_TYPE
+ {#1 STR_CONST "SELF_TYPE"
+        {#1 STR_CONST "SELF_TYPE"
+            #1 OBJECTID population_map
+ <- #1 OBJECTID map
+;#1 STR_CONST "map"
+            #1 OBJECTID self
+;#1 STR_CONST "self"
+        }#1 STR_CONST "self"
+    };#1 STR_CONST "self"
+   #1 STR_CONST "self"
+    #1 OBJECTID print
+() : #1 TYPEID SELF_TYPE
+ {#1 STR_CONST "SELF_TYPE"
+        {#1 STR_CONST "SELF_TYPE"
+            #1 OBJECTID out_string
+(#1 OBJECTID population_map
+.#1 OBJECTID concat
+("\#1 OBJECTID n
+"));#1 STR_CONST "n"
+            #1 OBJECTID self
+;#1 STR_CONST "self"
+        }#1 STR_CONST "self"
+    };#1 STR_CONST "self"
+   #1 STR_CONST "self"
+    #1 OBJECTID num_cells
+() : #1 TYPEID Int
+ {#1 STR_CONST "Int"
+        #1 OBJECTID population_map
+.#1 OBJECTID length
+()#1 STR_CONST "length"
+    };#1 STR_CONST "length"
+   #1 STR_CONST "length"
+    #1 OBJECTID cell
+(#1 OBJECTID position
+ : #1 TYPEID Int
+) : #1 TYPEID String
+ {#1 STR_CONST "String"
+        #1 OBJECTID population_map
+.#1 OBJECTID substr
+(#1 OBJECTID position
+, 1)#1 STR_CONST "position"
+    };#1 STR_CONST "position"
+   #1 STR_CONST "position"
+    #1 OBJECTID cell_left_neighbor
+(#1 OBJECTID position
+ : #1 TYPEID Int
+) : #1 TYPEID String
+ {#1 STR_CONST "String"
+        #1 IF
+ #1 OBJECTID position
+ = 0 #1 THEN
+#1 STR_CONST "position"
+            #1 OBJECTID cell
+(#1 OBJECTID num_cells
+() - 1)#1 STR_CONST "num_cells"
+        #1 ELSE
+#1 STR_CONST "num_cells"
+            #1 OBJECTID cell
+(#1 OBJECTID position
+ - 1)#1 STR_CONST "position"
+        #1 FI
+#1 STR_CONST "position"
+    };#1 STR_CONST "position"
+   #1 STR_CONST "position"
+    #1 OBJECTID cell_right_neighbor
+(#1 OBJECTID position
+ : #1 TYPEID Int
+) : #1 TYPEID String
+ {#1 STR_CONST "String"
+        #1 IF
+ #1 OBJECTID position
+ = #1 OBJECTID num_cells
+() - 1 #1 THEN
+#1 STR_CONST "num_cells"
+            #1 OBJECTID cell
+(0)#1 STR_CONST "cell"
+        #1 ELSE
+#1 STR_CONST "cell"
+            #1 OBJECTID cell
+(#1 OBJECTID position
+ + 1)#1 STR_CONST "position"
+        #1 FI
+#1 STR_CONST "position"
+    };#1 STR_CONST "position"
+   #1 STR_CONST "position"
+    (* #1 OBJECTID a
+ #1 OBJECTID cell
+ #1 OBJECTID will
+ #1 OBJECTID live
+ #1 IF
+ #1 OBJECTID exactly
+ 1 #1 OF
+ #1 OBJECTID itself
+ #1 OBJECTID and
+ #1 OBJECTID it
+'#1 OBJECTID s
+ #1 OBJECTID immediate
+#1 STR_CONST "immediate"
+       #1 OBJECTID neighbors
+ #1 OBJECTID are
+ #1 OBJECTID alive
+ *)#1 STR_CONST "alive"
+    #1 OBJECTID cell_at_next_evolution
+(#1 OBJECTID position
+ : #1 TYPEID Int
+) : #1 TYPEID String
+ {#1 STR_CONST "String"
+        #1 IF
+ (#1 IF
+ #1 OBJECTID cell
+(#1 OBJECTID position
+) = "#1 TYPEID X
+" #1 THEN
+ 1 #1 ELSE
+ 0 #1 FI
+#1 STR_CONST "X"
+            + #1 IF
+ #1 OBJECTID cell_left_neighbor
+(#1 OBJECTID position
+) = "#1 TYPEID X
+" #1 THEN
+ 1 #1 ELSE
+ 0 #1 FI
+#1 STR_CONST "X"
+            + #1 IF
+ #1 OBJECTID cell_right_neighbor
+(#1 OBJECTID position
+) = "#1 TYPEID X
+" #1 THEN
+ 1 #1 ELSE
+ 0 #1 FI
+#1 STR_CONST "X"
+            = 1)#1 STR_CONST "X"
+        #1 THEN
+#1 STR_CONST "X"
+            "#1 TYPEID X
+"#1 STR_CONST "X"
+        #1 ELSE
+#1 STR_CONST "X"
+            '.'#1 STR_CONST "X"
+        #1 FI
+#1 STR_CONST "X"
+    };#1 STR_CONST "X"
+   #1 STR_CONST "X"
+    #1 OBJECTID evolve
+() : #1 TYPEID SELF_TYPE
+ {#1 STR_CONST "SELF_TYPE"
+        (#1 LET
+ #1 OBJECTID position
+ : #1 TYPEID Int
+ #1 IN
+#1 STR_CONST "Int"
+        (#1 LET
+ #1 OBJECTID num
+ : #1 TYPEID Int
+ <- #1 OBJECTID num_cells
+[] #1 IN
+#1 STR_CONST "num_cells"
+        (#1 LET
+ #1 OBJECTID temp
+ : #1 TYPEID String
+ #1 IN
+#1 STR_CONST "String"
+            {#1 STR_CONST "String"
+                #1 WHILE
+ #1 OBJECTID position
+ < #1 OBJECTID num
+ #1 OBJECTID loop
+#1 STR_CONST "loop"
+                    {#1 STR_CONST "loop"
+                        #1 OBJECTID temp
+ <- #1 OBJECTID temp
+.#1 OBJECTID concat
+(#1 OBJECTID cell_at_next_evolution
+(#1 OBJECTID position
+));#1 STR_CONST "position"
+                        #1 OBJECTID position
+ <- #1 OBJECTID position
+ + 1;#1 STR_CONST "position"
+                    }#1 STR_CONST "position"
+                #1 POOL
+;#1 STR_CONST "position"
+                #1 OBJECTID population_map
+ <- #1 OBJECTID temp
+;#1 STR_CONST "temp"
+                #1 OBJECTID self
+;#1 STR_CONST "self"
+            }#1 STR_CONST "self"
+        ) ) )#1 STR_CONST "self"
+    };#1 STR_CONST "self"
+};#1 STR_CONST "self"
+#1 STR_CONST "self"
+#1 CLASS
+ #1 TYPEID Main
+ {#1 STR_CONST "Main"
+    #1 OBJECTID cells
+ : #1 TYPEID CellularAutomaton
+;#1 STR_CONST "CellularAutomaton"
+   #1 STR_CONST "CellularAutomaton"
+    #1 OBJECTID main
+() : #1 TYPEID SELF_TYPE
+ {#1 STR_CONST "SELF_TYPE"
+        {#1 STR_CONST "SELF_TYPE"
+            #1 OBJECTID cells
+ <- (#1 OBJECTID new
+ #1 TYPEID CellularAutomaton
+).#1 OBJECTID init
+("         #1 TYPEID X
+         ");#1 STR_CONST "X"
+            #1 OBJECTID cells
+.#1 OBJECTID print
+();#1 STR_CONST "print"
+            (#1 LET
+ #1 OBJECTID countdown
+ : #1 TYPEID Int
+ <- 20 #1 IN
+#1 STR_CONST "Int"
+                #1 WHILE
+ #1 OBJECTID countdown
+ > 0 #1 OBJECTID loop
+#1 STR_CONST "loop"
+                    {#1 STR_CONST "loop"
+                        #1 OBJECTID cells
+.#1 OBJECTID evolve
+();#1 STR_CONST "evolve"
+                        #1 OBJECTID cells
+.#1 OBJECTID print
+();#1 STR_CONST "print"
+                        #1 OBJECTID countdown
+ <- #1 OBJECTID countdown
+ - 1;#1 STR_CONST "countdown"
+                    #1 STR_CONST "countdown"
+                #1 POOL
+#1 STR_CONST "countdown"
+            );  (* #1 OBJECTID end
+ #1 LET
+ #1 OBJECTID countdown
+#1 STR_CONST "countdown"
+            #1 OBJECTID self
+;#1 STR_CONST "self"
+        }#1 STR_CONST "self"
+    };#1 STR_CONST "self"
+};#1 STR_CONST "self"
